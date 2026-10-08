@@ -1,0 +1,9 @@
+{
+  "verifiedAt": "2026-10-08",
+  "trendyol": {"sellerId": "421646", "transport": "partner-api", "status": "products-read-tested", "baseUrl": "https://apigw.trendyol.com", "legacyDesktopFile": "apikey-trendyol.txt"},
+  "shopier": {"transport": "rest-api", "status": "product-create-and-read-tested", "baseUrl": "https://api.shopier.com/v1", "legacyDesktopFile": "shopier-key.txt", "lavantaProductId": "51623831"},
+  "hepsiburada": {"merchantId": "0864116b-07ca-48bc-91e9-1b2893970611", "transport": "pazarus", "integrator": "hubsan_dev", "status": "pazarus-api-test-success", "productPreviewCount": 434, "importStatus": "started-not-verified-complete", "syncMode": "disabled", "existingIntegratorToPreserve": "birfatura_dev"},
+  "pazarus": {"tenant": "1158", "panelUrl": "https://pazarus.io/partner/1158", "mcpUrl": "https://pazarus.io/mcp", "oauthScope": "mcp:use", "chatgptPluginUrl": "https://chatgpt.com/plugins/plugin_asdk_app_6a8ada2e49408191a0e9861b1dda442f", "aiConnectionStatus": "not-connected", "aiWritePermissions": "disabled"},
+  "shopify": {"storeHandle": "hizli-uygun-satis-com-tr", "adminUrl": "https://admin.shopify.com/store/hizli-uygun-satis-com-tr", "status": "browser-session-observed-api-not-configured"},
+  "github": {"requestedTarget": "karaaslanaksesuar-png/testai1121121", "authenticatedAccount": "karaaslanaksesuar-png", "status": "write-access-verified", "visibility": "public"}
+}
