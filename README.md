@@ -10,9 +10,17 @@ Hepsiburada anahtarı Pazarus'ta kayıtlıdır. Bu projede kopyası yoktur. BirF
 
 ## Başka bilgisayar
 
+### Anahtarları tek parolalı paketle taşıma (Windows, PowerShell 7.4+)
+
+Bu PC'de `pwsh -STA -File ./scripts/Portable-Vault.ps1 -Mode Export -Gui` çalıştırın. İki gizli parola penceresine aynı uzun ve benzersiz parolayı girin. Gerçek anahtarlar ekrana yazılmaz; `.secrets/marketplace-transfer.mpvault` oluşur. Parola unutulursa paket açılamaz. Kaynak yerel kasa değişmez.
+
+Yalnız bu `.mpvault` dosyasını USB veya güvenli dosya aktarımıyla diğer PC'ye taşıyın; GitHub'a yüklemeyin. Diğer PC'de projeyi klonlayın ve `pwsh -STA -File ./scripts/Portable-Vault.ps1 -Mode Import -PackagePath 'C:/paketin/yolu/marketplace-transfer.mpvault' -Gui` çalıştırın. Parola gizli pencerede girilir; o PC'ye bağlı şifreli kasa oluşturulur. Mevcut kasa üzerine yazılmaz.
+
+Paket mevcut yerel kasadaki Trendyol/Shopier anahtarlarını kapsar. Hepsiburada servis anahtarı yerel kasada olmadığından pakete eklenmez; Pazarus hesabından OAuth bağlantısı kullanılır. Shopify anahtarı henüz kurulmadı. Paket/parola Git'e veya sohbete konmaz. Format: AES-256-GCM, rastgele salt/nonce, PBKDF2-SHA256 600.000 tur; değişmiş paket veya yanlış parola reddedilir. Bu araç bağımsız güvenlik denetiminden geçmemiştir.
+
 1. Doğru GitHub deposunu klonlayın ve bu klasörü Codex'te proje olarak açın.
 2. PowerShell'de `./scripts/Install-Skill.ps1` çalıştırın; yeni Codex sohbeti başlatın.
-3. Trendyol ve Shopier anahtarlarını parola yöneticisi gibi güvenli bir kanaldan o bilgisayara sağlayın. Mevcut biçimdeki Desktop dosyaları varsa `./scripts/Import-LegacySecrets.ps1` çalıştırın. Windows şifreli vault dosyasını başka PC'ye kopyalamak işe yaramaz.
+3. Yukarıdaki taşınabilir paketi açın veya anahtarları parola yöneticisi gibi güvenli bir kanaldan sağlayın. Mevcut biçimdeki Desktop dosyaları varsa `./scripts/Import-LegacySecrets.ps1` çalıştırın. Windows şifreli vault dosyasını doğrudan başka PC'ye kopyalamak işe yaramaz.
 4. Alternatif olarak o oturuma TRENDYOL_SELLER_ID, TRENDYOL_BASIC_TOKEN, SHOPIER_TOKEN ortam değişkenlerini güvenli olarak sağlayın. Değerleri sohbet/Git'e yazmayın.
 5. Pazarus hesabına giriş yapın; https://pazarus.io/mcp için OAuth bağlantısını kurun veya ChatGPT Pazarus uygulamasını bağlayın. Aynı hesapta oturum açmak bu projenin ve yerel anahtarların otomatik olarak gelmesini garanti etmez.
 6. `$marketplace-operations` ile çalışın; önce yalnız okuma testi yapın.

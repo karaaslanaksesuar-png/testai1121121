@@ -25,3 +25,5 @@ Use GET for connection checks; never verify setup by changing production invento
 ## Another computer
 
 Clone the confirmed GitHub repository, open its marketplace-control folder as a Codex project, run scripts/Install-Skill.ps1, provision API secrets on that computer or reconnect OAuth, and run read checks. Local encrypted credentials are machine/user-bound, not synced by this project. Do not promise that signing into the same Codex account alone restores local files, browser sessions or this vault.
+
+For an authorized Windows cross-PC transfer, scripts/Portable-Vault.ps1 (PowerShell 7.4+) exports the local vault to a password-encrypted .mpvault package and imports it into the receiving PC's protected vault. Use -Gui for local hidden password entry; never ask for the password in chat. Keep packages out of Git and transfer them separately. It covers only credentials actually present in the local vault, not Pazarus OAuth tokens or an unconfigured Shopify account. Verify package creation/import before claiming completion.
